@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Agri Rental System</title>
+    <style>
+        body {
+            background-color: #e0f7e0; /* Light green background */
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: #2d7d2d; /* Dark green title */
+            margin-top: 50px;
+        }
+        a {
+            text-decoration: none;
+            color: white;
+            background-color: #2d7d2d;
+            padding: 10px 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin: 20px;
+        }
+        a:hover {
+            background-color: #45a049;
+        }
+        .slider {
+            width: 80%;
+            height: 300px; /* Reduced height */
+            margin: auto;
+            overflow: hidden;
+            border: 2px solid #2d7d2d;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        .slides {
+            display: flex;
+            animation: slide 10s infinite;
+        }
+        .slides img {
+            width: 100%;
+            height: 100%; /* Ensures images fit within slider height */
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            33% { transform: translateX(-33.33%); }
+            66% { transform: translateX(-66.66%); }
+            100% { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to Agri Rental System</h1>
+    <a href="{{ url_for('login') }}">Login</a>
+    
+    <div class="slider">
+        <div class="slides">
+            <img src="{{ url_for('static', filename='image1.png') }}" alt="Image 1">
+            <img src="{{ url_for('static', filename='image2.png') }}" alt="Image 2">
+            <img src="{{ url_for('static', filename='image3.png') }}" alt="Image 3">
+        </div>
+    </div>
+</body>
+</html>

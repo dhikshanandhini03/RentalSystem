@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0fff0; /* Light green background */
+        }
+
+        h1 {
+            color: #2e8b57; /* Sea green */
+            text-align: center;
+            animation: fadeIn 1s ease-in;
+        }
+
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #98fb98; /* Pale green */
+            box-shadow: 0 0 10px rgba(0,100,0,0.2);
+            animation: slideUp 0.5s ease-out;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #3cb371; /* Medium sea green */
+        }
+
+        th {
+            background-color: #32cd32; /* Lime green */
+            color: white;
+        }
+
+        tr {
+            transition: all 0.3s ease;
+        }
+
+        tr:hover {
+            background-color: #adff2f; /* GreenYellow */
+            transform: scale(1.01);
+        }
+
+        td:nth-child(5) {
+            color: #006400; /* Dark green for availability */
+            font-weight: bold;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            color: #2e8b57; /* Sea green */
+            text-decoration: none;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #006400; /* Dark green */
+            transform: translateY(-2px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Manage Products</h1>
+    <table>
+        <tr><th>ID</th><th>Name</th><th>Description</th><th>Price</th><th>Available</th></tr>
+        {% for product in products %}
+            <tr>
+                <td>{{ product[0] }}</td>
+                <td>{{ product[1] }}</td>
+                <td>{{ product[2] }}</td>
+                <td>{{ product[3] }}</td>
+                <td>{{ product[4] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+</body>
+</html>
